@@ -4,13 +4,14 @@ import styled from 'styled-components'
 import colors from 'styles/colors'
 import fonts from 'styles/fonts'
 import { routeNames } from 'routes'
+import {useMediaQuery} from '@mui/material';
 
 const StakingAboutComponent = () => {
   const navigate = useNavigate()
-
+  const isMobile = useMediaQuery('(max-width: 600px)');
   return (
     <>
-      <Container dark>
+      <Container dark style={{ minHeight: isMobile? 'unset':'' }}>
         <MediaHeight350>
           <BackgroundTitle $order={8} src="/images/staking/staking-background-title.svg" alt="Staking" />
           <Image src='/images/staking/staking-pyramid.svg' alt='pyramid' type='pyramid' />
@@ -20,7 +21,7 @@ const StakingAboutComponent = () => {
           </TextWrapper>
         </MediaHeight350>
       </Container>
-      <Container dark>
+      <Container dark style={{ minHeight: isMobile? 'unset':'' }}>
         <MediaHeight350>
           <BackgroundTitle $order={8} src="/images/staking/staking-background-title.svg" alt="Staking" />
           <Planet src='/images/staking/staking-planet.svg' alt='planet' />
