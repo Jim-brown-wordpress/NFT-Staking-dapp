@@ -17,7 +17,7 @@ export const walletConnectDeepLink =
   'https://maiar.page.link/?apn=com.elrond.maiar.wallet&isi=1519405832&ibi=com.elrond.maiar.wallet&link=https://maiar.com/';
 
 export const contractAddress =
-  'erd1qqqqqqqqqqqqqpgqyu6n9qr7f7yzzda5ays73nr8xrdwhxyl5zvsrr4zpq';
+  'erd1qqqqqqqqqqqqqpgq0czrl04pw5d00qvy0khgm4ag0wktsjkz5zvsh7hexx';
 export const NFT_COLLECTION_ID = 'ABCDE-21319b';
 
 // export const serverURL = 'https://newdegenorder-dao-server.vercel.app/api'
