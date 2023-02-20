@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="918" height="578" viewBox="0 0 918 578">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e0e0e0"/>
+    </linearGradient>
+    <filter id="Rectangle_43" x="0" y="0" width="918" height="578" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_31" data-name="Group 31" transform="translate(-433.5 -3796)">
+    <g transform="matrix(1, 0, 0, 1, 433.5, 3796)" filter="url(#Rectangle_43)">
+      <rect id="Rectangle_43-2" data-name="Rectangle 43" width="858" height="518" rx="20" transform="translate(30 27)" fill="white"/>
+    </g>
+    <text id="_NDO_Tokenomics:" data-name="$NDO Tokenomics:" transform="translate(787.5 3845)" font-size="20" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="20">$NDO Tokenomics:</tspan></text>
+    <text id="Stake_1_NFT_" data-name="Stake 1 NFT " transform="translate(545.5 3928)" font-size="20" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Stake 1 NFT </tspan></text>
+    <text id="Reward_10.24_5.12_" data-name="Reward                                
+                                                    10.24                                                
+                                                     5.12                                                  
+   " transform="translate(841.5 3908)" font-size="20" font-family="HelveticaNeue, Helvetica Neue"><tspan x="9.75" y="19" xml:space="preserve">Reward                                </tspan><tspan x="44" y="43" xml:space="preserve">                                                    </tspan><tspan x="18.98" y="67" xml:space="preserve">10.24                                                </tspan><tspan x="44" y="91" xml:space="preserve">                                                     </tspan><tspan x="24.54" y="115" xml:space="preserve">5.12                                                  </tspan><tspan x="44" y="139" xml:space="preserve">                                                     </tspan><tspan x="24.54" y="163" xml:space="preserve">2.56                                                  </tspan><tspan x="44" y="187" xml:space="preserve">                                                     </tspan><tspan x="24.54" y="211" xml:space="preserve">1.28                                                  </tspan><tspan x="44" y="235" xml:space="preserve">                                                     </tspan><tspan x="24.54" y="259" xml:space="preserve">0.64                                                 </tspan><tspan x="44" y="283" xml:space="preserve">                                                     </tspan><tspan x="24.54" y="307" xml:space="preserve">0.32                                                 </tspan><tspan x="44" y="331" xml:space="preserve">                                            </tspan><tspan x="24.54" y="355" xml:space="preserve">0.16                                            </tspan></text>
+    <text id="Halving_period_1_2_" data-name="Halving period
+                                                                                                  1
+                                                                                                   2
+                                        " transform="translate(1088.5 3908)" font-size="20" font-family="HelveticaNeue, Helvetica Neue"><tspan x="0" y="19">Halving period</tspan><tspan x="0" y="43" xml:space="preserve">                                                                                                  </tspan><tspan x="0" y="67">1</tspan><tspan x="0" y="91" xml:space="preserve">                                                                                                   </tspan><tspan x="0" y="115">2</tspan><tspan x="0" y="139" xml:space="preserve">                                                                                                    </tspan><tspan x="0" y="163">3</tspan><tspan x="0" y="187" xml:space="preserve">                                                                                                      </tspan><tspan x="0" y="211">4</tspan><tspan x="0" y="235" xml:space="preserve">                                                                                                   </tspan><tspan x="0" y="259">5</tspan><tspan x="0" y="283" xml:space="preserve">                                                                                                    </tspan><tspan x="0" y="307">6</tspan><tspan x="0" y="331" xml:space="preserve">                                                                                                     </tspan><tspan x="0" y="355">7</tspan></text>
+    <path id="Path_36" data-name="Path 36" d="M49.625-6796.974H824.358" transform="translate(452.309 10684)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2" stroke-dasharray="10"/>
+    <path id="Path_37" data-name="Path 37" d="M0,0H353.143" transform="translate(754.211 3914.857) rotate(90)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="2" stroke-dasharray="10"/>
+    <path id="Path_38" data-name="Path 38" d="M0,0H353.143" transform="translate(1017.053 3914.857) rotate(90)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="2" stroke-dasharray="10"/>
+    <text id="_1_halving_period_6_months" data-name="1 halving period ≈ 6 months" transform="translate(891.5 4319)" font-size="20" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="-128.2" y="0">1 halving period ≈ 6 months</tspan></text>
+    <path id="Path_36-2" data-name="Path 36" d="M49.625-6796.974H824.358" transform="translate(455.508 10684)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="2" stroke-dasharray="10"/>
+  </g>
+</svg>

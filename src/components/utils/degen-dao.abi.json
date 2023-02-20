@@ -1,0 +1,164 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.60.0-nightly",
+            "commitHash": "b17226fcc11587fed612631be372a5b4cb89988a",
+            "commitDate": "2022-02-18",
+            "channel": "Nightly",
+            "short": "rustc 1.60.0-nightly (b17226fcc 2022-02-18)"
+        },
+        "contractCrate": {
+            "name": "degen-dao",
+            "version": "0.0.1"
+        },
+        "framework": {
+            "name": "elrond-wasm",
+            "version": "0.27.4"
+        }
+    },
+    "name": "DegenDAO",
+    "constructor": {
+        "inputs": [],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "createPropolsal",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "title",
+                    "type": "bytes"
+                },
+                {
+                    "name": "text",
+                    "type": "bytes"
+                },
+                {
+                    "name": "deadline",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "editPropolsal",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "prop_idx",
+                    "type": "u32"
+                },
+                {
+                    "name": "title",
+                    "type": "bytes"
+                },
+                {
+                    "name": "text",
+                    "type": "bytes"
+                },
+                {
+                    "name": "deadline",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "vote",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "prop_idx",
+                    "type": "u32"
+                },
+                {
+                    "name": "vote",
+                    "type": "u32"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getPropolsalByIdx",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "idx",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Propolsal"
+                }
+            ]
+        },
+        {
+            "name": "propolsalsCount",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "propolsals",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<Propolsal>",
+                    "multi_result": true
+                }
+            ]
+        }
+    ],
+    "hasCallback": false,
+    "types": {
+        "Propolsal": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "title",
+                    "type": "bytes"
+                },
+                {
+                    "name": "text",
+                    "type": "bytes"
+                },
+                {
+                    "name": "start_time",
+                    "type": "u64"
+                },
+                {
+                    "name": "deadline",
+                    "type": "u64"
+                },
+                {
+                    "name": "yes_votes",
+                    "type": "u32"
+                },
+                {
+                    "name": "no_votes",
+                    "type": "u32"
+                },
+                {
+                    "name": "votes_count",
+                    "type": "u32"
+                },
+                {
+                    "name": "nfts_voted",
+                    "type": "List<Address>"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Jost Regular";
+  src: local('Jost'),
+  url('/fonts/Jost.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Jost Semibold";
+  src: local('Jost'),
+  url('/fonts/Jost.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Jost Bold";
+  src: local('Jost'),
+  url('/fonts/Jost.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Jost Italic";
+  src: local('Jost Italic'),
+  url('/fonts/Jost Italic.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: "American Captain";
+  src: local('American Captain'),
+  url('/fonts/American-Captain.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Helvetica Neue Regular";
+  src: local('Helvetica Neue'),
+  url('/fonts/Helvetica Neue Regular.otf') format('truetype');
+}
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src: local('Helvetica Neue'),
+  url('/fonts/Helvetica Neue Bold.ttf') format('truetype');
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Helvetica Neue Medium Condensed";
+  src: local('Helvetica Neue Condensed'),
+  url('/fonts/Helvetica Neue 67 Medium Condensed.otf') format('truetype');
+}
+@font-face {
+  font-family: "Helvetica Neue Condensed Black";
+  src: local('Helvetica Neue Condensed'),
+  url('/fonts/Helvetica Neue 97 Black Condensed.otf') format('truetype');
+}
+@font-face {
+  font-family: "Helvetica Neue Condensed Bold";
+  src: local('Helvetica Neue Condensed'),
+  url('/fonts/Helvetica Neue Condensed Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Press Start";
+  src: local('Press Start'),
+  url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
