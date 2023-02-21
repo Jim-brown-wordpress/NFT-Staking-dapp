@@ -80,13 +80,19 @@ a {
 }
 
 .mediapadding {
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     padding: '4px 10px';
   }
 }
 
 .mediapaddingTop20 {
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     padding-top: 20px;
+  }
+}
+
+.dapp-core-component__main__px-4 {
+  @media screen and (max-width: 600px) {
+    min-width: 200px;
   }
 }
