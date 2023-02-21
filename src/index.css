@@ -93,6 +93,6 @@ a {
 
 .dapp-core-component__main__px-4 {
   @media screen and (max-width: 600px) {
-    min-width: 200px;
+    min-width: 200px !important;
   }
 }
