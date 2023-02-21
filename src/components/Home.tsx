@@ -20,28 +20,66 @@ const Home = () => {
       <Container>
         <MainTitle>
           <BackgroundTitle $order={1} src="/images/about/background-text1.svg" alt="New Degen Order" />
-          <BackgroundTitle $mobile $order={1} src="/images/about/mobile/background-text1.svg" alt="New Degen Order" />
-          <TextContainer>NEW DEGEN ORDER</TextContainer>
-          <BackgroundText>International private community for <span style = {{ color: isMobile? '#9D72FF': '' }}>degens, builders and other cool people.</span> </BackgroundText>
+          <BackgroundTitle style = {{
+            top: isMobile?'-150px':''
+           }} $mobile $order={1} src="/images/about/mobile/background-text1.svg" alt="New Degen Order" />
+          {
+            !isMobile?
+              <TextContainer>NEW DEGEN ORDER</TextContainer>
+              :
+              <>
+              <TextContainer>NEW</TextContainer>
+              <TextContainer>DEGEN ORDER</TextContainer>
+              </>
+          }
+          {
+            !isMobile?
+              <BackgroundText>International private community for <span style = {{ color: isMobile? '#9D72FF': '' }}>degens, builders and other cool people.</span> </BackgroundText>
+              :
+              <></>
+          }
         </MainTitle>
-        <Image src="/images/home-pyramids.png" alt="pyramids"></Image>
-        <ScrollText>
+        <Image style = {{
+          marginTop: isMobile? '60px':''
+         }} src="/images/home-pyramids.png" alt="pyramids"></Image>
+        {
+          isMobile?
+            <BackgroundText style = {{
+              marginTop: isMobile? '50px':'',
+              maxWidth: isMobile? '300px':''
+             }}>International private community for <span style = {{ color: isMobile? '#9D72FF': '' }}>degens, builders and other cool people.</span> </BackgroundText>
+            :
+            <></>
+        }
+        <ScrollText style={{ visibility: isMobile? 'hidden':'unset' }}>
           <Icon src="/images/about/arrow-down2.svg" alt="arrow" />
           <Icon src="/images/about/arrow-down.svg" alt="arrow" />
           <div>Scroll down</div>
         </ScrollText>
       </Container>
+
       <Container gray>
-        <BackgroundTitle $order={2} src="/images/about/background-text2.svg" alt="Meet the Ogs" style = {{ top: '100px' }} />
-        <BackgroundTitle $mobile $order={2} src="/images/about/mobile/background-text2-meet.svg" alt="Meet the ogs" />
-        <BackgroundTitle $mobile $order={2.5} src="/images/about/mobile/background-text2-oggs.svg" alt="Meet the ogs" />
-        <TextWrapper style = {{ textAlign: 'center' }}>
-          <h1 style = {{ fontSize: '50px', lineHeight: 1 }}>What can I do here?</h1>
-          <p style = {{ textAlign: 'left' }}>Meet the OGs!<br/> Holding just<span style = {{ fontWeight: isMobile?'bold': '' }}> 1 NFT from New Degen Order collections</span>  gives you access to the private community in Discord. Talk, laugh, exchange know-how, play games and vibe with the gang!</p>
-          <Text black style = {{ color: isMobile? 'white': '' }}>Your network is your net worth!</Text>
+        <BackgroundTitle $order={2} src="/images/about/background-text2.svg" alt="Meet the Ogs"
+        />
+        <BackgroundTitle $mobile style = {{
+            top: '100px' ,
+            padding: isMobile? '20px':'',
+            paddingBottom: isMobile? '0px':''
+          }} $order={2} src="/images/about/mobile/background-text2-meet.svg" alt="Meet the ogs" />
+        <BackgroundTitle  $mobile  style = {{
+          padding: isMobile? '20px':'',
+          paddingTop: isMobile? '0px':''
+         }} $order={2.5} src="/images/about/mobile/background-text2-oggs.svg" alt="Meet the ogs" />
+        <TextWrapper style = {{ textAlign: 'center' , marginTop: isMobile? '100px': '' }}>
+          <h1 style = {{ fontSize: isMobile?'40px': '50px'}}>What can I do here?</h1>
+          <p style = {{ textAlign: 'left', lineHeight: isMobile? 1.3: 1  }}>Meet the OGs!<br/> Holding just<span style = {{ fontWeight: isMobile?'bold': '' }}> 1 NFT from New Degen Order collections</span>  gives you access to the private community in Discord. Talk, laugh, exchange know-how, play games and vibe with the gang!</p>
+          <Text black style = {{ color: isMobile? 'white': '' , paddingLeft: isMobile? '5px':'', paddingRight: isMobile? '5px':'' }}>Your network is your net worth!</Text>
         </TextWrapper>
         {/* <Footer /> */}
-        <Circle src="/images/about/circle.svg" alt="circle" />
+        <Circle style = {{
+          left: isMobile? '-150px': '',
+          bottom: isMobile? '-190px': '',
+         }} src="/images/about/circle.svg" alt="circle" />
       </Container>
       <GovernanceComponent />
       <StakingComponent />

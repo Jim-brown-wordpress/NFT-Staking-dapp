@@ -12,10 +12,10 @@ const JoinUsComponent = () => {
       <BackgroundTitle $order={7} src='/images/about/background-text7.svg' alt='Join us' />
       <BackgroundTitle $order={7} $mobile src='/images/about/mobile/background-title7.svg' alt='Join us' />
       <TextWrapper>
-        <Heading style = {{ textAlign: isMobile?'left': 'center' , lineHeight: 1 , fontSize: isMobile? '30px': '40px' }}>Okay bruh, you got me! I want to join the DAO! Where can I buy your NFTs</Heading>
-        <Paragraph>New Degen Order lives between the Elrond and Solana blockchains.</Paragraph>
+        <Heading style = {{ textAlign: isMobile?'left': 'center' , lineHeight: 1.2 , fontSize: isMobile? '20px': '40px' }}>Okay bruh, you got me! I want to join the DAO! Where can I buy your NFTs</Heading>
+        <Paragraph style = {{ fontSize: isMobile?'16px': '' }}>New Degen Order lives between the Elrond and Solana blockchains.</Paragraph>
       </TextWrapper>
-      <ButtonWrapper style={{ display: isMobile? 'block':'' }}>
+      <ButtonWrapper style={{ display: isMobile? 'block':'' ,  width: isMobile? '300px':'',  marginTop: isMobile? '50px':''  }}>
         <Link href='https://xoxno.com/collection/NDO-950433' target='_blank' style={{ width: isMobile? '100%':'' }}>
           <Button>XOXNO <br/>(powered by Elrond)</Button>
         </Link>

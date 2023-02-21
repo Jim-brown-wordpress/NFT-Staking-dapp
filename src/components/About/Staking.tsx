@@ -13,7 +13,7 @@ const StakingComponent = () => {
         <StakingText style = {{ marginTop: '20px' }}>Stake your NFT for a daily $NDO token reward.</StakingText>
       </TextWrapper>
       <TableContainer>
-        <Table src="images/about/staking-table.svg" />
+        <Table src="images/about/staking-table.svg"  />
       </TableContainer>
     </Container>
   )

@@ -23,7 +23,7 @@ const GovernanceComponent = () => {
             <HoverText>We also have tier system, depending on how many NFTs do you hold</HoverText>
           </Back>
           <Front className="front">
-            <CellImage src="/images/about/arab-woman.svg" />
+            <CellImage src="/images/about/arab-woman.svg" id='#s1' />
             <CellTextWrapper>
               <CellTitle style = {{ fontSize: '20px' , lineHeight: '20px' }}>Degen</CellTitle>
               <NFTS style = {{ fontSize: '13px' }}>1-6 NFTs</NFTS>
@@ -35,7 +35,7 @@ const GovernanceComponent = () => {
             <HoverText>We also have tier system, depending on how many NFTs do you hold</HoverText>
           </Back>
           <Front className="front">
-            <CellImage src="/images/about/nefertiti-bust.svg" />
+            <CellImage src="/images/about/nefertiti-bust.svg" id='#s2'/>
             <CellTextWrapper>
               <CellTitle style = {{ fontSize: '20px' , lineHeight: '20px' }}>Vizier</CellTitle>
               <NFTS style = {{ fontSize: '13px' }}>7-16 NFTs</NFTS>
@@ -47,7 +47,7 @@ const GovernanceComponent = () => {
             <HoverText>We also have tier system, depending on how many NFTs do you hold</HoverText>
           </Back>
           <Front className="front">
-            <CellImage src="/images/about/pharaoh.svg" />
+            <CellImage src="/images/about/pharaoh.svg" id='#s3' />
             <CellTextWrapper>
               <CellTitle style = {{ fontSize: '20px' , lineHeight: '20px' }}>Pharaoh</CellTitle>
               <NFTS style = {{ fontSize: '13px' }}>17-76 NFTs</NFTS>
@@ -59,7 +59,7 @@ const GovernanceComponent = () => {
             <HoverText>We also have tier system, depending on how many NFTs do you hold</HoverText>
           </Back>
           <Front className="front">
-            <CellImage src="/images/about/anubis.svg" />
+            <CellImage src="/images/about/anubis.svg" id='#s4'/>
             <CellTextWrapper>
               <CellTitle style = {{ fontSize: '20px' , lineHeight: '20px' }}>Ancient Guardian</CellTitle>
               <NFTS style = {{ fontSize: '13px' }}>77+ NFTs</NFTS>

@@ -13,9 +13,9 @@ const FeelingBored = () => {
       <BackgroundTitle $order={7} $mobile src='/images/about/mobile/flappy.svg' alt='Flappy' />
       <TextWrapper>
         <Title>Feeling bored?</Title>
-        <p>Check our Flappy Degen game now!</p>
+        <p style = {{paddingTop: isMobile? '15px':'' }} >Check our Flappy Degen game now!</p>
         <Link href='/flappy-degen'>
-          <Button small style={{ width: isMobile? '250px':''  }}>Flappy Degen</Button>
+          <Button small style={{ width: isMobile? '250px':'' , marginTop: isMobile? '25px':'' }}>Flappy Degen</Button>
         </Link>
       </TextWrapper>
       <PipeImg src="/images/about/mobile/flappy1.png" alt="feeling bored" />

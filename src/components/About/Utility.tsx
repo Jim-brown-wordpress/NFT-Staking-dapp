@@ -3,16 +3,33 @@ import styled from 'styled-components'
 import { breakpoints } from 'styles/breakpoints'
 import colors from 'styles/colors'
 import fonts from 'styles/fonts'
+import {useMediaQuery} from '@mui/material';
 
 const UtilityComponent = () => {
+  const isMobile = useMediaQuery('(max-width: 600px)');
   return (
     <>
       <Container dark>
         <BackgroundTitle $order={5} src="/images/about/background-text5.svg" alt="Utility" />
         <BackgroundTitle $mobile $order={5} src="/images/about/mobile/background-title5.svg" alt="Utility" />
         <TextWrapper>
-          <Heading>Coming soon</Heading>
-          <Heading border style = {{ lineHeight: 1 }}>Wen Utility for $NDO?</Heading>
+          {
+            isMobile?
+              ''
+              :
+              <Heading>Coming soon</Heading>
+          }
+          {
+            isMobile?
+            <>
+              <Heading  style = {{textAlign: isMobile?'left':'center' }}>Wen Utility</Heading>
+              <Heading border style = {{  textAlign: isMobile?'left':'center' , paddingBottom: isMobile? '25px':'' , marginBottom: isMobile?'15px':'' }}>
+              for $NDO?</Heading>
+            </>
+
+              :
+              <Heading border style = {{ lineHeight: 1.1 , textAlign: isMobile?'left':'center' , paddingBottom: isMobile? '15px':'' , marginBottom: isMobile?'15px':'' }}>Wen Utility for $NDO?</Heading>
+          }
           <Text>You can use your $NDO tokens in the Raffles Center! Burn your $NDO token for a chance to win Merchandise, ESDT tokens from other projects, WL spots for upcoming mints, NFTs and more!</Text>
         </TextWrapper>
       </Container>
@@ -20,9 +37,17 @@ const UtilityComponent = () => {
         <BackgroundTitle $order={5} src="/images/about/background-text6.svg" alt="Gamble" />
         <BackgroundTitle $order={5} $mobile src='/images/about/mobile/background-title6.svg' alt='Gamble' />
         <TextWrapper>
-          <Heading border style = {{ lineHeight: 1 }}>Gamble with us!</Heading>
-          <Text>As degens love to risk and gamble with their capital we created our own Coin Flip owned by the DAO. Connect your wallet, choose Tails or Heads and try your luck!</Text>
-          <p>(77% of the profit goes to the DAO wallet)</p>
+          {
+            isMobile?
+              <>
+                <Heading style={{  textAlign: isMobile?'left':'center' , fontSize: isMobile?'50px':'' , marginBottom: isMobile?'0px':'' }}>Gamble </Heading>
+                <Heading border style = {{paddingBottom: isMobile? '35px':'', textAlign: isMobile?'left':'center', marginTop: isMobile?'20px':''  }}>with us!</Heading>
+              </>
+            :
+            <Heading border style = {{ lineHeight: 1, paddingBottom: isMobile? '15px':'' }}>Gamble with us!</Heading>
+          }
+          <Text style={{ fontSize: isMobile?'15px':'' }}>As degens love to risk and gamble with their capital we created our own Coin Flip owned by the DAO. Connect your wallet, choose Tails or Heads and try your luck!</Text>
+          <p style={{ fontSize: isMobile?'15px':'' }}>(77% of the profit goes to the DAO wallet)</p>
         </TextWrapper>
       </Container>
     </>
