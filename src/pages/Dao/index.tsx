@@ -24,7 +24,13 @@ const DaoPage = () => {
   const { address } = useGetAccountInfo()
 
   useEffect(() => {
-    axios.get(`${serverURL}/proposals`).then(res => {
+    axios.get(`${serverURL}/proposals` , {
+      // headers: {
+      //   'Access-Control-Allow-Origin' : '*',
+        // 'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
+      // }
+    }).then(res => {
       setHeadlines(res.data)
     })
   }, [])
@@ -39,7 +45,13 @@ const DaoPage = () => {
       })
       //NDOA-10ba86 - test
       //NDO-950433 - prod
-      axios.get(`${apiAddress}/accounts/${address}/nfts/count?collections=NDO-950433`).then((res) => {
+      axios.get(`${apiAddress}/accounts/${address}/nfts/count?collections=NDO-950433`, {
+        // headers: {
+        //   'Access-Control-Allow-Origin' : '*',
+        //   'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+        //   'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
+        // }
+      }).then((res) => {
         setNfts(res.data || 0);
       })
     }
@@ -110,12 +122,12 @@ const ScrollWrapper = styled.div`
     border: 1px solid ${colors.purple};
     border-radius: 10px;
   }
-  
+
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     margin-left: 20px;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background-color: ${colors.purple};
     box-shadow: 0px 3px 6px #00000029;
