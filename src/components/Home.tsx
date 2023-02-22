@@ -71,13 +71,13 @@ const Home = () => {
           paddingTop: isMobile? '0px':''
          }} $order={2.5} src="/images/about/mobile/background-text2-oggs.svg" alt="Meet the ogs" />
         <TextWrapper style = {{ textAlign: 'center' , marginTop: isMobile? '100px': '' }}>
-          <h1 style = {{ fontSize: isMobile?'40px': '50px'}}>What can I do here?</h1>
-          <p style = {{ textAlign: 'left', lineHeight: isMobile? 1.3: 1  }}>Meet the OGs!<br/> Holding just<span style = {{ fontWeight: isMobile?'bold': '' }}> 1 NFT from New Degen Order collections</span>  gives you access to the private community in Discord. Talk, laugh, exchange know-how, play games and vibe with the gang!</p>
+          <h1 style = {{ fontSize: isMobile?'40px': '50px' , lineHeight: '1'}}>What can I do here?</h1>
+          <p style = {{ textAlign: 'left', lineHeight: 1.3 , fontSize: isMobile?'':'25px'  }}>Meet the OGs!<br/> Holding just<span style = {{ fontWeight: isMobile?'bold': '' }}> 1 NFT from New Degen Order collections</span>  gives you access to the private community in Discord. Talk, laugh, exchange know-how, play games and vibe with the gang!</p>
           <Text black style = {{ color: isMobile? 'white': '' , paddingLeft: isMobile? '5px':'', paddingRight: isMobile? '5px':'' }}>Your network is your net worth!</Text>
         </TextWrapper>
         {/* <Footer /> */}
         <Circle style = {{
-          left: isMobile? '-150px': '',
+          left: isMobile? '-140px': '',
           bottom: isMobile? '-190px': '',
          }} src="/images/about/circle.svg" alt="circle" />
       </Container>

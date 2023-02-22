@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue Condensed Bold';
   color: #fff;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   background: #0C1422;
   background-color: #0C1422;
   height: 100vh;
@@ -94,5 +94,21 @@ a {
 @media screen and (max-width: 600px) {
   .dapp-core-component__main__px-4 {
       min-width: 200px !important;
+  }
+}
+
+.fire {
+  position: absolute;
+  max-width: 400px;
+  width: 50%;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+
+@media screen and (max-width: 600px) {
+  .fire {
+    /* left: calc(50% - 200px); */
   }
 }

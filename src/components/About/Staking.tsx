@@ -15,6 +15,7 @@ const StakingComponent = () => {
       <TableContainer>
         <Table src="images/about/staking-table.svg"  />
       </TableContainer>
+      <img src='images/pyramid-fire.jpg' className='fire'  />
     </Container>
   )
 }

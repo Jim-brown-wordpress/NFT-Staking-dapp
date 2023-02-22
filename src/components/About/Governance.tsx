@@ -67,7 +67,9 @@ const GovernanceComponent = () => {
           </Front>
         </Cell>
       </CellWrapper>
-      <Text>(more info in Discord)</Text>
+      {/* <Text>(more info in Discord)</Text> */}
+      <button onClick={() =>{}}  style = {{ width: '10rem' , marginTop: '30px' , fontSize: '1.2rem' , paddingTop: '0.3em' , paddingBottom :'0.3em' }} >Join Discord</button>
+
     </Container>
   )
 }

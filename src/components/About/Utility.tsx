@@ -4,9 +4,11 @@ import { breakpoints } from 'styles/breakpoints'
 import colors from 'styles/colors'
 import fonts from 'styles/fonts'
 import {useMediaQuery} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
 
 const UtilityComponent = () => {
   const isMobile = useMediaQuery('(max-width: 600px)');
+  const navigate = useNavigate();
   return (
     <>
       <Container dark>
@@ -47,7 +49,8 @@ const UtilityComponent = () => {
             <Heading border style = {{ lineHeight: 1, paddingBottom: isMobile? '15px':'' }}>Gamble with us!</Heading>
           }
           <Text style={{ fontSize: isMobile?'15px':'' }}>As degens love to risk and gamble with their capital we created our own Coin Flip owned by the DAO. Connect your wallet, choose Tails or Heads and try your luck!</Text>
-          <p style={{ fontSize: isMobile?'15px':'' }}>(77% of the profit goes to the DAO wallet)</p>
+          {/* <p style={{ fontSize: isMobile?'15px':'' }}>(77% of the profit goes to the DAO wallet)</p> */}
+          <button onClick={() =>navigate('/elrond-flip-coin')}  style = {{ width: '10rem' , marginTop: '30px' , fontSize: '1.2rem' , paddingTop: '0.3em' , paddingBottom :'0.3em' }} >CTA</button>
         </TextWrapper>
       </Container>
     </>
