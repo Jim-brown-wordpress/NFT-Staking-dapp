@@ -21,7 +21,8 @@ const Home = () => {
         <MainTitle>
           <BackgroundTitle $order={1} src="/images/about/background-text1.svg" alt="New Degen Order" />
           <BackgroundTitle style = {{
-            top: isMobile?'-150px':''
+            top: isMobile?'-150px':'',
+            opacity: isMobile?0.3:''
            }} $mobile $order={1} src="/images/about/mobile/background-text1.svg" alt="New Degen Order" />
           {
             !isMobile?

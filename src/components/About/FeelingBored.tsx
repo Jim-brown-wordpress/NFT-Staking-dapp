@@ -10,7 +10,7 @@ const FeelingBored = () => {
   return (
     <Container>
       <BackgroundTitle $order={7} src='/images/about/flappy.svg' alt='Flappy' />
-      <BackgroundTitle $order={7} $mobile src='/images/about/mobile/flappy.svg' alt='Flappy' />
+      <BackgroundTitle $order={7} $mobile src='/images/about/mobile/flappy.svg' alt='Flappy' style = {{ opacity: isMobile? 0.3:'' }} />
       <TextWrapper>
         <Title>Feeling bored?</Title>
         <p style = {{paddingTop: isMobile? '15px':'' }} >Check our Flappy Degen game now!</p>
