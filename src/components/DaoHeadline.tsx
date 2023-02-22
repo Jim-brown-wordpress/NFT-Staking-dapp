@@ -6,6 +6,7 @@ import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
 import { serverURL } from "config";
 import fonts from "styles/fonts";
+import {useMediaQuery} from '@mui/material';
 
 const fixNumber = (num: number) => {
   if (num < 10) {
@@ -40,6 +41,7 @@ const DaoHeadline = ({ headline, address, isVoted, activeTab, setVotes }: { head
   const countDownDate = new Date(hline.endDate).getTime() - new Date(hline.endDate).getTimezoneOffset() * 60000;
   const navigate = useNavigate();
   const [showExpired, setShowExpired] = useState(activeTab !== 1)
+  const isMobile = useMediaQuery('(max-width: 600px)');
   const handleYes = async (e: any) => {
     e.preventDefault()
     if (voted || showExpired || yesLoading) {
@@ -217,7 +219,7 @@ const DaoHeadline = ({ headline, address, isVoted, activeTab, setVotes }: { head
 
         {address ? (
           <div>
-            <VotesWrapper>
+            <VotesWrapper  style = {{ width: isMobile?'80vw':'' , left: isMobile?'10px':'' }}>
               <Test>
                 <div>VOTED YES: {percentages.yes || 0}</div>
                 <div>VOTED NO: {percentages.no || 0}</div>
@@ -302,7 +304,7 @@ const Arrow = styled.img`
   top: 60px;
   transition: all .2s linear;
   transform: rotate(0);
-  
+
   ${(props: { open: boolean }) => props.open && css`
     top: calc(100% - 50px);
     right: calc(50% - 20px);
@@ -404,7 +406,7 @@ const YesVoted = styled.div`
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   margin-top: 3px;
-  
+
   ${(props: { customWidth: number }) => typeof props.customWidth === 'number' && css`
     width: ${props.customWidth}%;
   `}
