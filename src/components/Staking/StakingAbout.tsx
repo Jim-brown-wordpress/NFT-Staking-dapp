@@ -104,19 +104,19 @@ const StakingAboutComponent = () => {
 export default StakingAboutComponent
 
 const MediaHeight350 = styled.div`
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     min-height: unset;
     height: 350px;
   }
 `
 
 const MediaTop5 = styled.div`
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     top: 5px;
   }
 `
 const MediaFontSize20 = styled.div`
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     font-size: 20px;
   }
 `
@@ -129,7 +129,7 @@ const Heading = styled.h1`
     margin-bottom: 50px;
   `}
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     font-size: 30px;
   }
 `
@@ -139,7 +139,7 @@ const Paragraph = styled.p`
   margin-top: 10px;
   font-family: ${fonts.HelveticaBold};
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     font-size: 20px;
   }
 `
@@ -152,7 +152,7 @@ const TextWrapper = styled.div`
     max-width: ${width}px;
   `}
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     text-align: center;
     top: 50px;
     position: relative;
@@ -167,7 +167,7 @@ const TextWrapper2 = styled.div`
     max-width: ${width}px;
   `}
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     text-align: center;
     top: 5px;
     position: relative;
@@ -177,7 +177,7 @@ const TextWrapper2 = styled.div`
 const Text = styled.div`
   padding-left: 50px;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     text-align: center;
     padding: 0;
     margin-top: 20px;
@@ -205,16 +205,16 @@ const ContentWrapper = styled.div`
   gap: 50px;
   z-index: 1;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 500px) {
     z-index: 5;
     position: relative;
     text-align: center;
     /* display: block; */
-    left: 200px;
+    padding-left: 200px;
   }
 
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     display: block;
     z-index: 5;
     position: relative;
@@ -230,7 +230,7 @@ const Number = styled.div`
   font-size: 50px;
   padding-bottom: 30px;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     font-size: 20px;
     padding-bottom: 10px;
   }
@@ -246,7 +246,7 @@ const Image = styled.img`
   `}
 
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     width: 300px;
     top: 20px;
     opacity: 0.7;
@@ -264,7 +264,7 @@ const Planet = styled.img`
   `}
 
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     width: 390px;
     margin: auto;
     top: 60px;
