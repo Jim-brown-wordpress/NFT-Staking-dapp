@@ -55,6 +55,7 @@ import {
 import axios from "axios";
 
 import nftStakingAbi from 'abi/geckon-staking-sc.abi.json';
+import {chainID , apiURL} from 'config';
 
 type InftInfo = {
   collection: string,
@@ -65,12 +66,6 @@ type InftInfo = {
 }
 
 
-const isDev = true;
-
-
-const chainID = isDev? 'D': '1';
-const apiURL = isDev?'https://devnet-api.multiversx.com':'https://api.multiversx.com';
-const proxyURL = isDev?'https://devnet-gateway.multiversx.com':'https://gateway.multiversx.com';
 
 
 
@@ -219,6 +214,7 @@ const Dashboard = () => {
           endpointDefinition
         );
         let value = res.firstValue?.valueOf();
+        console.log(value.toNumber());
         value = value.div(Math.pow(10 , decimal)).toNumber();
         const factor = Math.pow(10 , precision);
         value = Math.floor(value * factor) / factor;

@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
 const FlipGame = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width: 600px)');
+  const isTablet = useMediaQuery('(max-width: 900px)');
   console.log(isMobile);
 
   const [startGame, setStartGame] = useState(false);

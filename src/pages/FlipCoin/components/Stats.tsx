@@ -7,7 +7,8 @@ import {useMediaQuery} from '@mui/material';
 
 const Stats = ({ wallet, stats, openStats, hide, sol }: any) => {
   const [activeTab, setActiveTab] = useState(sol ? 2 : 1)
-  const isMobile = useMediaQuery('(max-width: 500px)');
+  const isMobile = useMediaQuery('(max-width: 600px)');
+  const isTablet= useMediaQuery('(max-width: 900px)');
   if (hide) {
     return null
   }
@@ -69,7 +70,7 @@ const StatsWrapper = styled.div<any>`
     margin: 0 auto;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 900px) {
     padding-bottom: 50px;
   }
 

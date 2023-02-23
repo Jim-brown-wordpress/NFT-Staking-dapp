@@ -40,6 +40,7 @@ const FlipGame = () => {
   const [sessionID, setSessionID] = useState<string>('')
 
   const isMobile = useMediaQuery('(max-width: 600px)');
+  const isTablet = useMediaQuery('(max-width: 900px)');
 
   const refreshStats = () => {
     fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
@@ -184,7 +185,7 @@ const FlipGame = () => {
         <BackgroundTitle src='/images/flip-coin/new/background-title.svg' alt='Flip Coin' $order={'flip-coin'} />
       }
       {openStats && <FlipStats blockchain='EGLD' openStats={setOpenStats} />}
-      <OuterContainer style = {{ display: isMobile? 'block':'' , marginTop:  '50px'}}>
+      <OuterContainer style = {{ display: isTablet? 'block':'' , marginTop:  '50px'}}>
         <Stats wallet={address} stats={stats} openStats={setOpenStats} hide={openStats || !address}  />
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
