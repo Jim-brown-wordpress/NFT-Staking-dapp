@@ -90,7 +90,7 @@ const StakingAboutComponent = () => {
               <Title>Minimum value locked</Title>
               <Number>0</Number>
               <Title>Total Pyramids Staked</Title>
-              <Number>{`${totalCount}`}</Number>
+              <Number>{`${stakedNftCount}`}</Number>
               <Title>% of Pyramids Staked</Title>
               <Number>{`${totalCount != 0? Math.floor( stakedNftCount / totalCount * 100 * 100 ) / 100 : 0}%`}</Number>
             </Text>

@@ -229,6 +229,7 @@ const FlipGame = () => {
             <PlayWrapper
               $activate={wallet.publicKey}
               $moveOut={preparing || startingGame || startGame}
+
             >
               <PlayLabel>I LIKE</PlayLabel>
               <PlayRow>
@@ -340,7 +341,7 @@ const FlipGame = () => {
                   2 <span>SOL</span>
                 </Button>
               </PlayRow>
-                <Button $flip $preparing={preparing} onClick={playTheGame} disabled={selectedType === null || bet === null}>
+                <Button $flip $preparing={preparing} onClick={playTheGame} disabled={selectedType === null || bet === null}  >
                   {preparing ? 'Preparing...' : 'Flip'}
                 </Button>
             </PlayWrapper>
@@ -388,9 +389,9 @@ const MainCointainer = styled.div<any>`
   position: relative;
   height: 100%;
 
-  @media screen and (max-width: 1000px) {
-    overflow-y: scroll;
-  }
+  // @media screen and (max-width: 1000px) {
+  //   overflow-y: scroll;
+  // }
 
   ${({ $openStats }) => $openStats && `
     display: none;
@@ -518,6 +519,10 @@ export const Button = styled.button<any>`
   @media screen and (max-width: 1000px) {
     z-index: 700;
   }
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const PlayWrapper = styled.div<any>`
@@ -543,6 +548,9 @@ const PlayWrapper = styled.div<any>`
     opacity: 0;
     transform: translateY(0);
   `}
+  @media screen and (max-width: 600px) {
+    display: none
+  }
 `;
 
 const ConnectButton = styled.div<any>`
@@ -601,6 +609,8 @@ const ConnectAndPlayButton = styled(WalletMultiButton)`
   &:hover {
     background: ${colors.purple};
   }
+
+
 `;
 
 const DisconnectWrapper = styled.div`
