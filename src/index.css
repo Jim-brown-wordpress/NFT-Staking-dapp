@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue Condensed Bold';
   color: #fff;
-  /* overflow-y: scroll; */
+  overflow-y: hidden;
   background: #0C1422;
   background-color: #0C1422;
   height: 100vh;

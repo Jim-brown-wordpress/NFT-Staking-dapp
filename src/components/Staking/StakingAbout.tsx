@@ -1,10 +1,10 @@
-import { BackgroundTitle, Container } from 'components/Home'
+// import { BackgroundTitle, Container } from 'components/Home'
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components'
 import colors from 'styles/colors'
 import fonts from 'styles/fonts'
 import { routeNames } from 'routes'
-import {useMediaQuery} from '@mui/material';
+import {Grid, useMediaQuery} from '@mui/material';
 import axios from 'axios';
 
 import {
@@ -15,7 +15,7 @@ import {
 import { useEffect, useState } from 'react';
 import { AbiRegistry } from '@elrondnetwork/erdjs/out';
 
-
+import {Container} from '@material-ui/core';
 
 import {chainID , apiURL, NFT_COLLECTION_ID, contractAddress} from 'config';
 
@@ -51,7 +51,29 @@ const StakingAboutComponent = () => {
 
   return (
     <>
-      <Container dark style={{ minHeight: isMobile? 'unset':'' }}>
+      <Container maxWidth = 'lg' style = {{ height: '100%' }}>
+        <Grid container>
+          <Grid item md = {6} style = {{ textAlign: 'center', display: 'flex' , flexDirection: 'column'  , alignItems: 'center' , justifyContent: 'center' , margin: 'auto'  }}>
+            <h1 >STAKE</h1>
+            <h1 >STAKE Your Pyramid for NDO</h1>
+            <Button onClick={()=> navigate(routeNames.stakingUnlock)}>CONNECT WALLET</Button>
+          </Grid>
+          <Grid item md = {6} style = {{position: 'relative' }} >
+            <img src='/images/staking/staking-planet.svg' alt='planet' style = {{ width: '100%' }}  />
+            <div style = {{ position: 'absolute' , top: '50%' , left: '50%' , transform: 'translate(-50% , -50%)' , textAlign: 'center' }}>
+              <Text style = {{ paddingLeft: '0' }}>
+                <Title>Minimum value locked</Title>
+                <Number>0</Number>
+                <Title>Total Pyramids Staked</Title>
+                <Number>{`${stakedNftCount}`}</Number>
+                <Title>% of Pyramids Staked</Title>
+                <Number>{`${totalCount != 0? Math.floor( stakedNftCount / totalCount * 100 * 100 ) / 100 : 0}%`}</Number>
+              </Text>
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
+      {/* <Container dark style={{ minHeight: isMobile? 'unset':'' }}>
         <MediaHeight350>
           <BackgroundTitle $order={8} src="/images/staking/staking-background-title.svg" alt="Staking" />
           {
@@ -96,7 +118,7 @@ const StakingAboutComponent = () => {
             </Text>
           </ContentWrapper>
         </MediaHeight350>
-      </Container>
+      </Container> */}
     </>
   )
 }
