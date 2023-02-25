@@ -27,21 +27,21 @@ const MobileHeader = () => {
       </Wrapper>
       {isOpen ? (
         <Navigation>
-          <StyledLink to="/">About</StyledLink>
-          <StyledLink to="/dao">DAO</StyledLink>
-          <StyledLink to = '/staking'>
+          <StyledLink to="/" onClick={() => setIsOpen(false)}>About</StyledLink>
+          <StyledLink to="/dao" onClick={() => setIsOpen(false)}>DAO</StyledLink>
+          <StyledLink to = '/staking' onClick={() => setIsOpen(false)}>
             Staking
           </StyledLink>
-          <StyledLink $disabled to="/#">
+          <StyledLink $disabled to="/#" onClick={() => setIsOpen(false)}>
             Raffles
             <span>Coming soon</span>
           </StyledLink>
-          <StyledLink $disabled to="/#">
+          <StyledLink $disabled to="/# onClick={() => setIsOpen(false)}">
             DeRug
             <span>Coming soon</span>
           </StyledLink>
-          <StyledLink to="/flip-coin">Coin Flip</StyledLink>
-          <StyledLink to="/flappy-degen">Flappy Degen</StyledLink>
+          <StyledLink to="/flip-coin" onClick={() => setIsOpen(false)}>Coin Flip</StyledLink>
+          <StyledLink to="/flappy-degen" onClick={() => setIsOpen(false)}>Flappy Degen</StyledLink>
           <CloseButton onClick={() => setIsOpen(false)}>CLOSE</CloseButton>
         </Navigation>
       ) : null}

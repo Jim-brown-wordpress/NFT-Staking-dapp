@@ -306,7 +306,7 @@ const MainCointainer = styled.div<any>`
   height: 100%;
 
   @media screen and (max-width: 1000px) {
-    overflow-y: scroll;
+    overflow-y: hidden;
   }
 
   ${({ $openStats }) => $openStats && `

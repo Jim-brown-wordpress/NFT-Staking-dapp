@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue Condensed Bold';
   color: #fff;
-  overflow-y: hidden;
+  overflow-y: auto;
   background: #0C1422;
   background-color: #0C1422;
   height: 100vh;
@@ -106,9 +106,3 @@ a {
   z-index: 0;
 }
 
-
-@media screen and (max-width: 600px) {
-  .fire {
-    /* left: calc(50% - 200px); */
-  }
-}

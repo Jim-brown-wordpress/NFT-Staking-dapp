@@ -207,7 +207,7 @@ const FlipGame = () => {
         <BackgroundTitle src='/images/flip-coin/new/background-title.svg' alt='Flip Coin' $order={'flip-coin'} />
       }
       {openStats && <FlipStats blockchain='SOL' openStats={setOpenStats} />}
-      <OuterContainer >
+      <OuterContainer  style = {{ display: isTablet? 'block':'' , marginTop:  '50px'}}>
         <Stats wallet={wallet.publicKey} stats={stats} openStats={setOpenStats} hide={openStats || !wallet.publicKey} sol  />
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
@@ -507,7 +507,7 @@ export const Button = styled.button<any>`
     box-shadow: 0px 3px 30px #00000029;
     mix-blend-mode: overlay;
     border-radius: 10px;
-    min-width: 360px;
+    min-width: 320px;
 
     &:disabled {
       cursor: not-allowed;
@@ -521,7 +521,7 @@ export const Button = styled.button<any>`
   }
 
   @media screen and (max-width: 600px) {
-    display: none;
+    // display: none;
   }
 `;
 
@@ -531,7 +531,7 @@ const PlayWrapper = styled.div<any>`
   transform: translateY(0);
   position: relative;
   z-index: 999;
-  width: 400px;
+  width: 350px;
   padding: 80px 20px 0;
   margin: 0 auto;
 
@@ -549,7 +549,7 @@ const PlayWrapper = styled.div<any>`
     transform: translateY(0);
   `}
   @media screen and (max-width: 600px) {
-    display: none
+    // display: none
   }
 `;
 

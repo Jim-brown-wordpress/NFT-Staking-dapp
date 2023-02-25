@@ -21,7 +21,7 @@ const hideWalletAddress = (address: string) =>
   )}`;
 const GlobalStyles = createGlobalStyle`
   body {
-    overflow: auto;
+    overflow-y: scroll;
   }
 
 `;

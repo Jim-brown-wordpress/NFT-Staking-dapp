@@ -77,7 +77,7 @@ const DaoPage = () => {
     <>
       <Wrapper>
         <BackgroundTitle src='/images/dao/dao-background-title.svg' $order={'dao-left'} alt='Dao' />
-        <BackgroundTitle src='/images/dao/dao-background-title-r.svg' $order={'dao-right'} alt='Dao' />
+        {/* <BackgroundTitle src='/images/dao/dao-background-title-r.svg' $order={'dao-right'} alt='Dao' /> */}
         <Container>
           <DaoHeader activeTab={activeTab} setActiveTab={setActiveTab} data={data} />
           <HeadlineContainer>
