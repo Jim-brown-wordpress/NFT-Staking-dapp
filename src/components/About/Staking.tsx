@@ -9,7 +9,11 @@ const StakingComponent = () => {
   return (
     <Container gray>
       <BackgroundTitle $order={4} src="/images/about/background-text4.svg" alt="Staking" />
-      <BackgroundTitle $mobile $order={4} src="/images/about/mobile/background-title4.svg" alt="Staking" />
+      {
+        !isMobile?
+        <BackgroundTitle $mobile $order={4} src="/images/about/mobile/background-title4.svg" alt="Staking" />
+        :''
+      }
       <TextWrapper>
         <Staking>Staking</Staking>
         <StakingText style = {{ marginTop: '20px' }}>Stake your NFT for a daily $NDO token reward.</StakingText>
