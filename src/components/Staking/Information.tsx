@@ -72,6 +72,7 @@ const Modal = styled.div<any>`
   bottom: 0;
   left: 60vw;
   padding: 20px;
+  overflow-y:scroll;
 
   h4 {
     font-size: 25px;

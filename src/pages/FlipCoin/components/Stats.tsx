@@ -71,7 +71,7 @@ const StatsWrapper = styled.div<any>`
   }
 
   @media screen and (max-width: 900px) {
-    padding-bottom: 50px;
+    padding-bottom: 80px;
   }
 
 `

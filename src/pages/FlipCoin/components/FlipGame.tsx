@@ -24,6 +24,7 @@ import {useMediaQuery} from '@mui/material'
 const GlobalStyles = createGlobalStyle`
   body {
     transition: background-color .5s;
+    overflow: scroll !important;
   }
 
   * {
@@ -208,7 +209,6 @@ const FlipGame = () => {
       }
       {openStats && <FlipStats blockchain='SOL' openStats={setOpenStats} />}
       <OuterContainer  style = {{ display: isTablet? 'block':'' , marginTop:  '50px'}}>
-        <Stats wallet={wallet.publicKey} stats={stats} openStats={setOpenStats} hide={openStats || !wallet.publicKey} sol  />
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             <Coins $animate={startGame} $count={count}>
@@ -366,6 +366,7 @@ const FlipGame = () => {
             </FinalMessage>
           </div>
         </MainCointainer>
+        <Stats wallet={wallet.publicKey} stats={stats} openStats={setOpenStats} hide={openStats || !wallet.publicKey} sol  />
       </OuterContainer>
       <Footer />
     </TopWrapper>

@@ -231,7 +231,8 @@ const Dashboard = () => {
   ) => {
     const payment = TokenPayment.nonFungible(collection , nonce);
     const userAccount = new Account(new Address(address));
-    const gas = 6000000;
+    const gas = 100000000;
+    console.log(gas);
 
     console.log(collection , nonce , gas , payment , userAccount);
     const tx = contractInteractor.methods
@@ -247,9 +248,9 @@ const Dashboard = () => {
     let x = await sendTransactions({
       transactions: [tx],
       transactionsDisplayInfo: {
-        processingMessage: 'Processing Unstaking transaction',
-        errorMessage: 'An error has occured during Unstake',
-        successMessage: 'Unstaking transaction successful'
+        processingMessage: 'Processing Staking transaction',
+        errorMessage: 'An error has occured during Stake',
+        successMessage: 'Staking transaction successful'
       },
       redirectAfterSign: false
     })

@@ -97,12 +97,10 @@ a {
   }
 }
 
-.fire {
-  position: absolute;
-  max-width: 400px;
-  width: 50%;
-  left: 0;
-  bottom: 0;
-  z-index: 0;
+.fire th , td {
+  padding: 10px;
 }
 
+.fire th {
+  font-size: 20px;
+}
