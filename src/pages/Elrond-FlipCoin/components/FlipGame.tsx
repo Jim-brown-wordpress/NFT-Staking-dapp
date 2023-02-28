@@ -16,7 +16,7 @@ import {useMediaQuery} from '@mui/material';
 const GlobalStyles = createGlobalStyle`
   body {
     transition: background-color .5s;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 
   * {

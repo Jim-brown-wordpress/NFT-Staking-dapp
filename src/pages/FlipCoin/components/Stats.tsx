@@ -15,7 +15,7 @@ const Stats = ({ wallet, stats, openStats, hide, sol }: any) => {
 
   const data = [
     {
-      text: 'NDO',
+      text: 'EGLD',
       slug: 'elrond-flip-coin'
     },
     {

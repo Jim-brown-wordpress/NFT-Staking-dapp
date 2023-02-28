@@ -438,7 +438,7 @@ const Dashboard = () => {
         }}>Information</InformationButton>
       <ContentWrapper>
         <TitleContainer >
-          <Title>AVAILABLE<SubTitle>All the Pyramids you have minted</SubTitle></Title>
+          <Title>AVAILABLE<SubTitle>All the Pyramids you have in wallet</SubTitle></Title>
           <Button onClick = {stakingSelected}>STAKE SELECTED</Button>
         </TitleContainer>
         <StakingContainer>
@@ -538,7 +538,7 @@ const Wrapper = styled.div`
 
 const InnerWrapper = styled.div`
   display: flex;
-  overflow-x: scroll;
+  overflow-x: visible;
   gap: 18px;
 `
 

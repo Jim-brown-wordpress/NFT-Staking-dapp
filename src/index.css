@@ -5,6 +5,7 @@ body {
   font-family: 'Helvetica Neue Condensed Bold';
   color: #fff;
   overflow-y: auto;
+  overflow-x: hidden !important;
   background: #0C1422;
   background-color: #0C1422;
   height: 100vh;
