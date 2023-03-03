@@ -518,13 +518,14 @@ const MarginTop15 = styled.div`
 `
 
 const SubTitle = styled.div`
-  max-width: 150px;
+  max-width: 200px;
   font-size: 20px;
   display: inline-block;
   padding-left: 10px;
 
   @media screen and (max-width: 500px) {
     padding-left: 0;
+    max-width: 150px;
   }
 `
 
@@ -607,7 +608,7 @@ const StakingContainer = styled.div`
   opacity: 1;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  padding: 30px 60px;
+  padding: 20px 40px;
   height: 250px;
   display: flex;
   align-items: center;
@@ -618,6 +619,7 @@ const StakingContainer = styled.div`
     text-align: left;
     max-width: 800px;
     margin: 0 auto;
+    font-family: 'Helvetica Neue Condensed Bold';
 
     div {
       font-size: 20px;
@@ -628,6 +630,13 @@ const StakingContainer = styled.div`
     height: 160px;
     margin-left: 15px;
     margin-right: 15px;
+    P {
+      div {
+
+
+        font-size: 15px !important;
+      }
+    }
   }
 `
 

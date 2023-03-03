@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   background: transparent linear-gradient(180deg, #182844 0%, #111C31 100%) 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 30px #00000099;
   border: 3px solid #182844;
-  border-radius: 20px;
+  border-radius: 20pt;
   text-align: center;
   padding: 15px;
 
@@ -46,11 +46,11 @@ const Wrapper = styled.div`
 const Image = styled.img`
   width: 214px;
   height: 214px;
+  border-radius: 10pt;
 
   @media screen and (max-width: 500px) {
     width: 120px;
     height: 120px;
-    border-radius: 15px;
   }
 `
 
