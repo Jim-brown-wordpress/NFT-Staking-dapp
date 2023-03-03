@@ -47,7 +47,7 @@ const StakingComponent = () => {
           </tr>
           <tr>
             <td rowSpan={7} style = {{ width: '50%' }}>
-                <img src='images/pyramid.png'  style={{width: '100%' }}  />
+                <img src='images/pyramid.png'  style={{width: '100%' , position: 'relative' , zIndex: 5 }}  />
             </td>
             <td>10.24</td>
             <td>1</td>

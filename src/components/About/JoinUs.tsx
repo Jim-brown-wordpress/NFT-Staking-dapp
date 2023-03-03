@@ -15,7 +15,7 @@ const JoinUsComponent = () => {
         <Heading style = {{ textAlign: isMobile?'left': 'center' , lineHeight: 1.2 , fontSize: isMobile? '20px': '40px' }}>Okay bruh, you got me! I want to join the DAO! Where can I buy your NFTs</Heading>
         <Paragraph style = {{ fontSize: isMobile?'16px': '' }}>New Degen Order lives between the Elrond and Solana blockchains.</Paragraph>
       </TextWrapper>
-      <ButtonWrapper style={{ display: isMobile? 'block':'' ,  width: isMobile? '300px':'',  marginTop: isMobile? '50px':''  }}>
+      <ButtonWrapper style={{ display: isMobile? 'block':'' ,  width: isMobile? '300px':'',  marginTop: isMobile? '50px':'', zIndex: 5  }}>
         <Link href='https://xoxno.com/collection/NDO-950433' target='_blank' style={{ width: isMobile? '100%':'' }}>
           <Button>XOXNO <br/>(powered by Elrond)</Button>
         </Link>

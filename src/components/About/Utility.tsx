@@ -50,7 +50,7 @@ const UtilityComponent = () => {
           }
           <Text style={{ fontSize: isMobile?'15px':'' }}>As degens love to risk and gamble with their capital we created our own Coin Flip owned by the DAO. Connect your wallet, choose Tails or Heads and try your luck!</Text>
           {/* <p style={{ fontSize: isMobile?'15px':'' }}>(77% of the profit goes to the DAO wallet)</p> */}
-          <button onClick={() =>navigate('/elrond-flip-coin')}  style = {{ width: '10rem' , marginTop: '30px' , fontSize: '1.2rem' , paddingTop: '0.3em' , paddingBottom :'0.3em' }} >CTA</button>
+          <button onClick={() =>navigate('/elrond-flip-coin')}  style = {{ width: '10rem' , marginTop: '30px' , fontSize: '1.2rem' , paddingTop: '0.3em' , paddingBottom :'0.3em' , color: 'purple' }} >CTA</button>
         </TextWrapper>
       </Container>
     </>
