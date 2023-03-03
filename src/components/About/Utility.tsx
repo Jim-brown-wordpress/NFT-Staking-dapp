@@ -53,7 +53,7 @@ const UtilityComponent = () => {
           {/* <p style={{ fontSize: isMobile?'15px':'' }}>(77% of the profit goes to the DAO wallet)</p> */}
           {/* <button onClick={() =>navigate('/elrond-flip-coin')}  style = {{ width: '10rem' , marginTop: '30px' , fontSize: '1.2rem' , paddingTop: '0.3em' , paddingBottom :'0.3em' }} > */}
           {/* <Link href='/flappy-degen'> */}
-          <Button small style={{ width: '250px' , marginTop: '25px' }}>Coin Flip</Button>
+          <Button small style={{ width: '250px' , marginTop: '25px' }} onClick={() =>navigate('/elrond-flip-coin')}>Coin Flip</Button>
         {/* </Link> */}
           {/* </button> */}
         </TextWrapper>
