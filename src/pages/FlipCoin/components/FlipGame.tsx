@@ -9,7 +9,7 @@ import {
   WalletMultiButton
 } from '@solana/wallet-adapter-react-ui';
 // import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
 import fetch from 'cross-fetch';
@@ -20,6 +20,9 @@ import { BackgroundTitle } from 'components/Home';
 import Footer from 'components/Footer';
 import fonts from 'styles/fonts';
 import {useMediaQuery} from '@mui/material'
+
+import CoinFlipVideo from '../../../assets/video/coin-flip.mp4';
+
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -49,6 +52,8 @@ const FlipGame = () => {
   const [openStats, setOpenStats] = useState<boolean>(false)
   const wallet = useWallet();
   const { connection } = useConnection();
+
+  let videoRef = useRef<HTMLVideoElement>(null);
 
   const playGame = selectedType && bet && !startGame && wallet.publicKey &&
     (balance || 0) >= 0.05 && !startingGame
@@ -83,6 +88,17 @@ const FlipGame = () => {
       })();
     }
   }, [wallet]);
+
+  useEffect(() => {
+    if(videoRef.current != null) {
+      if(preparing){
+        videoRef.current.play();
+      }
+      else {
+        videoRef.current.pause();
+      }
+    }
+  } , [preparing]);
 
   const playTheGame = async () => {
     if (!wallet.publicKey) {
@@ -211,16 +227,30 @@ const FlipGame = () => {
       <OuterContainer  style = {{ display: isTablet? 'block':'' , marginTop:  '50px'}}>
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
-            <Coins $animate={startGame} $count={count}>
-              <FrontCoin
-                $start={startGame}
-                src='/images/flip-coin/new/coin.svg'
-              />
-              <BackCoin
-                $start={startGame}
-                src='/images/flip-coin/new/back.png'
-              />
-            </Coins>
+            {
+              preparing?
+                <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  width: '100%',
+                  height: 'auto',
+                  backfaceVisibility: 'hidden',
+                }} />
+                :
+                <Coins $animate={startGame} $count={count}>
+                  <FrontCoin
+                    $start={startGame}
+                    src='/images/flip-coin/new/coin.svg'
+                  />
+                  <BackCoin
+                    $start={startGame}
+                    src='/images/flip-coin/new/back.png'
+                  />
+                </Coins>
+            }
           </CoinsWrapper>
           <div>
             <ConnectButton $activate={wallet.publicKey}>

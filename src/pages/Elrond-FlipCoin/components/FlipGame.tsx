@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, css, keyframes } from 'styled-components'
 import colors from '../../../styles/colors';
-import { useEffect, useState } from 'react';
+import { useEffect, useState , useRef } from 'react';
 import fetch from 'cross-fetch'
 import Stats from '../../FlipCoin/components/Stats';
 import { useGetAccountInfo, useTrackTransactionStatus } from '@elrondnetwork/dapp-core/hooks';
@@ -12,6 +12,8 @@ import FlipStats from 'components/Flip-Stats';
 import { BackgroundTitle } from 'components/Home';
 import fonts from 'styles/fonts';
 import {useMediaQuery} from '@mui/material';
+
+import CoinFlipVideo from '../../../assets/video/coin-flip.mp4';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -43,6 +45,8 @@ const FlipGame = () => {
   const isMobile = useMediaQuery('(max-width: 600px)');
   const isTablet = useMediaQuery('(max-width: 900px)');
 
+  let videoRef = useRef<HTMLVideoElement>(null);
+
   const refreshStats = () => {
     fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
       method: 'GET',
@@ -65,7 +69,8 @@ const FlipGame = () => {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
           wallet: address,
@@ -159,6 +164,16 @@ const FlipGame = () => {
     }
   }, [address])
 
+  useEffect(() => {
+    if(videoRef.current != null) {
+      if(preparing){
+        videoRef.current.play();
+      }
+      else {
+        videoRef.current.pause();
+      }
+    }
+  } , [preparing]);
   const playTheGame = async () => {
     if (!address) throw new Error('no wallet');
 
@@ -173,7 +188,6 @@ const FlipGame = () => {
       ],
       signWithoutSending: true
     }, );
-
     setSessionID(sessionId)
   }
 
@@ -189,10 +203,27 @@ const FlipGame = () => {
       <OuterContainer style = {{ display: isTablet? 'block':'' , marginTop:  '50px'}}>
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
-            <Coins $animate={startGame} $count={count}>
-              <FrontCoin $start={startGame} src="/images/flip-coin/new/ndo-coin.svg" />
-              <BackCoin $start={startGame} src="/images/flip-coin/new/back.png" />
-            </Coins>
+            {
+              preparing?
+                  <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    width: '100%',
+                    height: 'auto',
+                    backfaceVisibility: 'hidden',
+                  }} />
+                  :
+
+                <Coins $animate={startGame} $count={count}>
+                  <FrontCoin $start={startGame} src="/images/flip-coin/new/ndo-coin.svg" />
+                  <BackCoin $start={!preparing} src="/images/flip-coin/new/back.png" />
+                </Coins>
+
+            }
+
           </CoinsWrapper>
           <div>
             <ConnectButton $activate={address}>
