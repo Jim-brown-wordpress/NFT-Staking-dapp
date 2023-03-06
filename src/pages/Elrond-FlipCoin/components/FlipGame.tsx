@@ -206,8 +206,9 @@ const FlipGame = () => {
             {
               preparing || startGame?
                   <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
-                    position: 'absolute',
-                    top: 0,
+                    position: 'fixed',
+                    zIndex: 5,
+                    top: isMobile? '50px':0,
                     left: 0,
                     right: 0,
                     bottom: 0,
