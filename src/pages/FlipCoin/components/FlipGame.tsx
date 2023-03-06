@@ -91,14 +91,14 @@ const FlipGame = () => {
 
   useEffect(() => {
     if(videoRef.current != null) {
-      if(preparing){
+      if(preparing || startGame){
         videoRef.current.play();
       }
       else {
         videoRef.current.pause();
       }
     }
-  } , [preparing]);
+  } , [preparing || startGame]);
 
   const playTheGame = async () => {
     if (!wallet.publicKey) {
@@ -228,7 +228,7 @@ const FlipGame = () => {
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             {
-              preparing?
+              preparing || startGame?
                 <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
                   position: 'absolute',
                   top: 0,
