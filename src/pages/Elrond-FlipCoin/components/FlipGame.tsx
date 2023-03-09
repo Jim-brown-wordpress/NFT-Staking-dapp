@@ -46,9 +46,11 @@ const FlipGame = () => {
   const isTablet = useMediaQuery('(max-width: 900px)');
 
   let videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlay , setIsPlay] = useState<boolean>(false);
 
   const refreshStats = () => {
-    fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
+    // fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
+      fetch('http://localhost:3001/api/coin-game/stats?blockchain=EGLD', {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -57,6 +59,7 @@ const FlipGame = () => {
     }).then((res: any) => {
       return res.json()
     }).then((result: any) => {
+      console.log(result);
       setStats(result?.games || [])
     })
   }
@@ -65,12 +68,15 @@ const FlipGame = () => {
     if (trStatus?.transactions?.[0]) {
       setSendRequest(true)
 
-      fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
+      // fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
+
+      fetch('http://localhost:3001/api/coin-game/elrond', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          // 'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Credentials': 'true'
         },
         body: JSON.stringify({
           wallet: address,
@@ -81,6 +87,7 @@ const FlipGame = () => {
       }).then((res) => {
         return res.json()
       }).then(async (result) => {
+        console.log(result);
         if (result.won) {
           setStartingGame(true)
           setPreparing(false)
@@ -153,6 +160,7 @@ const FlipGame = () => {
   });
 
   useEffect(() => {
+    console.log(transactionStatus , sessionID);
     if (transactionStatus?.status === 'signed' && !sendRequest) {
       playTheFlipGame(transactionStatus)
     }
@@ -167,10 +175,15 @@ const FlipGame = () => {
   useEffect(() => {
     if(videoRef.current != null) {
       if(startGame){
+        console.log('playing');
+        // setIsPlay(true);
         videoRef.current.play();
       }
       else {
-        videoRef.current.pause();
+        // if(isPlay){
+          // setIsPlay(false);
+          videoRef.current.pause();
+        // }
       }
     }
   } , [startGame]);
@@ -178,7 +191,7 @@ const FlipGame = () => {
     if (!address) throw new Error('no wallet');
 
     setPreparing(true)
-    const {sessionId} = await sendTransactions({
+    const txHash = await sendTransactions({
       transactions: [
         {
           value: `${(bet || 0) * 1000000000000000000}`,
@@ -186,8 +199,10 @@ const FlipGame = () => {
           receiver: 'erd10zemyy2hnlh93wxd7sxz0z5p6e5u42wmqdrvka8jf293r6yjk4asfk7mv9'
         },
       ],
-      signWithoutSending: true
+      // signWithoutSending: true
     }, );
+    const {sessionId} = txHash;
+    console.log(sessionId , txHash);
     setSessionID(sessionId)
   }
 
@@ -204,11 +219,11 @@ const FlipGame = () => {
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             {
-              startGame?
+              (startGame) && !finalMessage?
                   <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
                     position: 'fixed',
                     zIndex: 5,
-                    top: isMobile? '50px':0,
+                    top: isMobile? '200px':0,
                     left: 0,
                     right: 0,
                     bottom: 0,
@@ -376,7 +391,7 @@ const Coins = styled.div<any>`
   transition: all .5s ease;
 
   ${({$animate, $count}) => $animate && css`
-    animation: ${flip($count)} 2s forwards;
+    animation: ${flip($count)} 0s forwards;
   `}
 `
 

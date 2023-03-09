@@ -40,7 +40,7 @@ export const NFT_STAKING_CONTRACT_NAME = 'NewDegenOrder';
 export const network = {
   id: '1',
   name: 'Mainnet',
-  egldLabel: 'xEGLD',
+  egldLabel: 'EGLD',
   walletAddress: 'https://wallet.elrond.com',
   apiAddress: 'https://api.elrond.com',
   explorerAddress: 'http://explorer.elrond.com',

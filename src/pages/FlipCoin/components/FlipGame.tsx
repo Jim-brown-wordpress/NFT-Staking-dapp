@@ -60,7 +60,8 @@ const FlipGame = () => {
 
   const [stats, setStats] = useState<any>([]);
   const refreshStats = () => {
-    fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=SOL', {
+    // fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=SOL', {
+      fetch('http://localhost:3001/api/coin-game/stats?blockchain=SOL', {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -133,7 +134,8 @@ const FlipGame = () => {
     }
 
     if (balance && bet && balance >= bet) {
-      fetch('https://games-api-five.vercel.app/api/coin-game', {
+      // fetch('https://games-api-five.vercel.app/api/coin-game', {
+        fetch('http://localhost:3001/api/coin-game', {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
@@ -228,11 +230,11 @@ const FlipGame = () => {
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             {
-              startGame?
+              startGame && !finalMessage?
                 <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
                   position: 'fixed',
                   zIndex: 5,
-                  top: isMobile? '50px':0,
+                  top: isMobile? '200px':0,
                   left: 0,
                   right: 0,
                   bottom: 0,
@@ -461,7 +463,7 @@ const Coins = styled.div<any>`
   ${({ $animate, $count }) =>
     $animate &&
     css`
-      animation: ${flip($count)} 2s forwards;
+      animation: ${flip($count)} 0s forwards;
     `}
 `;
 
