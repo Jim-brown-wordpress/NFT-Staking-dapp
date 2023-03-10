@@ -55,6 +55,7 @@ const FlipGame = () => {
   const { connection } = useConnection();
 
   let videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlay, setIsPlay] = useState<boolean>(false);
 
   const playGame = selectedType && bet && !startGame && wallet.publicKey &&
     (balance || 0) >= 0.05 && !startingGame
@@ -93,14 +94,14 @@ const FlipGame = () => {
 
   useEffect(() => {
     if(videoRef.current != null) {
-      if(startGame){
+      if(isPlay){
         videoRef.current.play();
       }
       else {
         videoRef.current.pause();
       }
     }
-  } , [startGame]);
+  } , [isPlay]);
 
   const playTheGame = async () => {
     if (!wallet.publicKey) {
@@ -136,6 +137,7 @@ const FlipGame = () => {
 
     if (balance && bet && balance >= bet) {
       // fetch('https://games-api-five.vercel.app/api/coin-game', {
+          setIsPlay(true);
         fetch(`${conflipServerURl}/api/coin-game`, {
         method: 'POST',
         headers: {
@@ -183,6 +185,7 @@ const FlipGame = () => {
               }, 3000);
             }, 1000);
           } else {
+            // setIsPlay(true);
             setStartingGame(true);
             setPreparing(false);
             setTimeout(() => {
@@ -231,7 +234,7 @@ const FlipGame = () => {
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             {
-              startGame && !finalMessage?
+              isPlay && !finalMessage?
                 <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
                   position: 'fixed',
                   zIndex: 5,

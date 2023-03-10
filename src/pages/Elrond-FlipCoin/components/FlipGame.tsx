@@ -83,6 +83,7 @@ const FlipGame = () => {
       // fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
       console.log(trStatus.transactions);
       try {
+        setIsPlay(true);
         const res = await axios.post(`${conflipServerURl}/api/coin-game/elrond`, {
           wallet: address,
           bet: selectedType,
@@ -105,7 +106,6 @@ const FlipGame = () => {
               setCount("4140")
               console.log('User is winning, tails')
             }
-
             setStartingGame(false)
             setStartGame(true)
             setTimeout(() => {
@@ -120,6 +120,7 @@ const FlipGame = () => {
 
           }, 1000)
         } else {
+          // setIsPlay(true);
           setStartingGame(true)
           setPreparing(false)
           setTimeout(() => {
@@ -180,8 +181,9 @@ const FlipGame = () => {
   }, [address])
 
   useEffect(() => {
+    console.log(isPlay);
     if (videoRef.current != null) {
-      if (startGame) {
+      if (isPlay) {
         console.log('playing');
         // setIsPlay(true);
         videoRef.current.play();
@@ -193,7 +195,7 @@ const FlipGame = () => {
         // }
       }
     }
-  }, [startGame]);
+  }, [isPlay]);
   const playTheGame = async () => {
     if (!address) throw new Error('no wallet');
 
@@ -226,7 +228,7 @@ const FlipGame = () => {
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             {
-              (startGame) && !finalMessage ?
+              (isPlay) && !finalMessage ?
                 <video src={CoinFlipVideo} loop muted ref={videoRef} style={{
                   position: 'fixed',
                   zIndex: 5,
@@ -328,6 +330,7 @@ const FlipGame = () => {
               {finalMessage ? (
                 <Button onClick={() => {
                   setStartGame(false)
+                  setIsPlay(false);
                   setFinalMessage(null)
 
                 }}>Play again</Button>
