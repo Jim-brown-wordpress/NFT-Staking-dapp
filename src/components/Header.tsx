@@ -131,12 +131,12 @@ const Header = () => {
               <span>Coming soon</span>
             </LabelLink>
           </Cell>
-          <Cell active={slug === '/derug'}>
+          {/* <Cell active={slug === '/derug'}>
             <LabelLink $disabled  to="/derug"   onClick={e => e.preventDefault()}>
               DeRug
               <span>Coming soon</span>
             </LabelLink>
-          </Cell>
+          </Cell> */}
           <Cell active={slug === '/elrond-flip-coin'}>
             <LabelLink to="/elrond-flip-coin">
               Coin Flip

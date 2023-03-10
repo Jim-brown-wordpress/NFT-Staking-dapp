@@ -17,11 +17,13 @@ export const walletConnectDeepLink =
   'https://maiar.page.link/?apn=com.elrond.maiar.wallet&isi=1519405832&ibi=com.elrond.maiar.wallet&link=https://maiar.com/';
 
 export const contractAddress =
-  'erd1qqqqqqqqqqqqqpgq6tkyygmx90gag2pt3c4ul2ajpqgz9stp5zvszkgrz5';
+  'erd1qqqqqqqqqqqqqpgqeenvnpp4mgc3e53rdxtl98mvl6mnu77j5zvsy7kch0';
 export const NFT_COLLECTION_ID = 'ABCDE-21319b';
 
 // export const serverURL = 'https://newdegenorder-dao-server.vercel.app/api'
 export const serverURL = 'http://localhost:3001/api'
+
+export const conflipServerURl = 'https://coin-flip-game-c5x9.vercel.app';
 
 export const dAppName = 'NewDegenOrder';
 export const NFT_STAKING_CONTRACT_NAME = 'NewDegenOrder';

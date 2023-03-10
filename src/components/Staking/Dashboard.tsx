@@ -231,7 +231,7 @@ const Dashboard = () => {
   ) => {
     const payment = TokenPayment.nonFungible(collection , nonce);
     const userAccount = new Account(new Address(address));
-    const gas = 100000000;
+    const gas = 600000000;
     console.log(gas);
 
     console.log(collection , nonce , gas , payment , userAccount);

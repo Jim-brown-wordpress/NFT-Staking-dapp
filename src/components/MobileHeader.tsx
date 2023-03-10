@@ -36,10 +36,10 @@ const MobileHeader = () => {
             Raffles
             <span>Coming soon</span>
           </StyledLink>
-          <StyledLink $disabled to="/# onClick={() => setIsOpen(false)}">
+          {/* <StyledLink $disabled to="/# onClick={() => setIsOpen(false)}">
             DeRug
             <span>Coming soon</span>
-          </StyledLink>
+          </StyledLink> */}
           <StyledLink to="/flip-coin" onClick={() => setIsOpen(false)}>Coin Flip</StyledLink>
           <StyledLink to="/flappy-degen" onClick={() => setIsOpen(false)}>Flappy Degen</StyledLink>
           <CloseButton onClick={() => setIsOpen(false)}>CLOSE</CloseButton>

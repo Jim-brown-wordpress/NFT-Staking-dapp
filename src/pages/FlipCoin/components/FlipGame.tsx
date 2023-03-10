@@ -22,6 +22,7 @@ import fonts from 'styles/fonts';
 import {useMediaQuery} from '@mui/material'
 
 import CoinFlipVideo from '../../../assets/video/coin-flip.mp4';
+import {conflipServerURl} from 'config';
 
 
 const GlobalStyles = createGlobalStyle`
@@ -61,7 +62,7 @@ const FlipGame = () => {
   const [stats, setStats] = useState<any>([]);
   const refreshStats = () => {
     // fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=SOL', {
-      fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=SOL', {
+      fetch(`${conflipServerURl}/api/coin-game/stats?blockchain=SOL`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -135,7 +136,7 @@ const FlipGame = () => {
 
     if (balance && bet && balance >= bet) {
       // fetch('https://games-api-five.vercel.app/api/coin-game', {
-        fetch('https://games-api-five.vercel.app/api/coin-game', {
+        fetch(`${conflipServerURl}/api/coin-game`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',

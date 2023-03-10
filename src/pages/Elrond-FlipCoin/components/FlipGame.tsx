@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, css, keyframes } from 'styled-components'
 import colors from '../../../styles/colors';
-import { useEffect, useState , useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import fetch from 'cross-fetch'
 import Stats from '../../FlipCoin/components/Stats';
 import { useGetAccountInfo, useTrackTransactionStatus } from '@elrondnetwork/dapp-core/hooks';
@@ -11,9 +11,12 @@ import { routeNames } from 'routes';
 import FlipStats from 'components/Flip-Stats';
 import { BackgroundTitle } from 'components/Home';
 import fonts from 'styles/fonts';
-import {useMediaQuery} from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 
 import CoinFlipVideo from '../../../assets/video/coin-flip.mp4';
+
+import { conflipServerURl } from 'config';
+import axios from 'axios'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -46,49 +49,52 @@ const FlipGame = () => {
   const isTablet = useMediaQuery('(max-width: 900px)');
 
   let videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlay , setIsPlay] = useState<boolean>(false);
+  const [isPlay, setIsPlay] = useState<boolean>(false);
 
-  const refreshStats = () => {
-    fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
-      // fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/stats?blockchain=EGLD', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-    }).then((res: any) => {
-      return res.json()
-    }).then((result: any) => {
+  const refreshStats = async () => {
+    console.log('refreshStte');
+    // fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
+    try {
+
+
+      const result = await axios.get(`${conflipServerURl}/api/coin-game/stats?blockchain=EGLD`)
       console.log(result);
-      setStats(result?.games || [])
-    })
+      setStats(result.data?.games || [])
+
+    } catch {
+      console.log('err');
+    }
+    // .then((res: any) => {
+    //   console.log('res.json(): ' ,res.json());
+    //   return res.json()
+    // }).then((result: any) => {
+    //   console.log(result);
+    //   setStats(result?.games || [])
+    // })
+    // .catch(err => console.log(err));
+    // console.log(result)
+
   }
 
-  const playTheFlipGame = (trStatus: any) => {
+  const playTheFlipGame = async (trStatus: any) => {
     if (trStatus?.transactions?.[0]) {
       setSendRequest(true)
 
-      fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
-
-      // fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/elrond', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
-          // 'Access-Control-Allow-Credentials': 'true'
-        },
-        body: JSON.stringify({
+      // fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
+      console.log(trStatus.transactions);
+      try {
+        const res = await axios.post(`${conflipServerURl}/api/coin-game/elrond`, {
           wallet: address,
           bet: selectedType,
           amount: bet,
           transaction: trStatus.transactions[0]
-        })
-      }).then((res) => {
-        return res.json()
-      }).then(async (result) => {
-        console.log(result);
-        if (result.won) {
+        },
+          {
+            headers: { 'content-type': 'application/json' }
+          }
+
+        );
+        if (res.data.won) {
           setStartingGame(true)
           setPreparing(false)
           setTimeout(() => {
@@ -137,10 +143,11 @@ const FlipGame = () => {
             }, 3000)
           }, 1000)
         }
-      }).catch(() => {
-        setSendRequest(false)
-        setPreparing(false)
-      })
+      } catch {
+        console.log('error in coin flip');
+      }
+
+
     }
   }
 
@@ -160,7 +167,7 @@ const FlipGame = () => {
   });
 
   useEffect(() => {
-    console.log(transactionStatus , sessionID);
+    console.log(transactionStatus, sessionID);
     if (transactionStatus?.status === 'signed' && !sendRequest) {
       playTheFlipGame(transactionStatus)
     }
@@ -173,20 +180,20 @@ const FlipGame = () => {
   }, [address])
 
   useEffect(() => {
-    if(videoRef.current != null) {
-      if(startGame){
+    if (videoRef.current != null) {
+      if (startGame) {
         console.log('playing');
         // setIsPlay(true);
         videoRef.current.play();
       }
       else {
         // if(isPlay){
-          // setIsPlay(false);
-          videoRef.current.pause();
+        // setIsPlay(false);
+        videoRef.current.pause();
         // }
       }
     }
-  } , [startGame]);
+  }, [startGame]);
   const playTheGame = async () => {
     if (!address) throw new Error('no wallet');
 
@@ -200,9 +207,9 @@ const FlipGame = () => {
         },
       ],
       // signWithoutSending: true
-    }, );
-    const {sessionId} = txHash;
-    console.log(sessionId , txHash);
+    },);
+    const { sessionId } = txHash;
+    console.log(sessionId, txHash);
     setSessionID(sessionId)
   }
 
@@ -210,28 +217,28 @@ const FlipGame = () => {
     <TopWrapper>
       <GlobalStyles />
       {openStats ?
-        <BackgroundTitle src='/images/flip-coin/new/statistics-background-title.svg' alt='Statistics' $order={'statistics'}/>
+        <BackgroundTitle src='/images/flip-coin/new/statistics-background-title.svg' alt='Statistics' $order={'statistics'} />
         :
         <BackgroundTitle src='/images/flip-coin/new/background-title.svg' alt='Flip Coin' $order={'flip-coin'} />
       }
       {openStats && <FlipStats blockchain='EGLD' openStats={setOpenStats} />}
-      <OuterContainer style = {{ display: isTablet? 'block':'' , marginTop:  '50px'}}>
+      <OuterContainer style={{ display: isTablet ? 'block' : '', marginTop: '50px' }}>
         <MainCointainer $openStats={openStats}>
           <CoinsWrapper>
             {
-              (startGame) && !finalMessage?
-                  <video src = {CoinFlipVideo} loop muted ref = {videoRef}  style = {{
-                    position: 'fixed',
-                    zIndex: 5,
-                    top: isMobile? '200px':0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    width: '100%',
-                    height: 'auto',
-                    backfaceVisibility: 'hidden',
-                  }} />
-                  :
+              (startGame) && !finalMessage ?
+                <video src={CoinFlipVideo} loop muted ref={videoRef} style={{
+                  position: 'fixed',
+                  zIndex: 5,
+                  top: isMobile ? '200px' : 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  width: '100%',
+                  height: 'auto',
+                  backfaceVisibility: 'hidden',
+                }} />
+                :
 
                 <Coins $animate={startGame} $count={count}>
                   <FrontCoin $start={startGame} src="/images/flip-coin/new/ndo-coin.svg" />
@@ -243,7 +250,7 @@ const FlipGame = () => {
           </CoinsWrapper>
           <div>
             <ConnectButton $activate={address}>
-              <ConnectAndPlayButton onClick={()=>{ navigate(routeNames.flipUnlock) }}>Connect wallet & play</ConnectAndPlayButton>
+              <ConnectAndPlayButton onClick={() => { navigate(routeNames.flipUnlock) }}>Connect wallet & play</ConnectAndPlayButton>
             </ConnectButton>
             <PlayWrapper $activate={address} $moveOut={preparing || startingGame || startGame}>
               <PlayLabel>I LIKE</PlayLabel>
@@ -265,21 +272,21 @@ const FlipGame = () => {
               </PlayRow>
               <PlayLabel>FOR</PlayLabel>
               <PlayRow>
-                <Button $amount $selected={bet === 0.05}  onClick={() => {
+                <Button $amount $selected={bet === 0.05} onClick={() => {
                   if (bet === 0.05) {
                     setBet(null)
                   } else {
                     setBet(0.05)
                   }
                 }}>0.05 <span>EGLD</span></Button>
-                <Button $amount $selected={bet === 0.1}  onClick={() => {
+                <Button $amount $selected={bet === 0.1} onClick={() => {
                   if (bet === 0.1) {
                     setBet(null)
                   } else {
                     setBet(0.1)
                   }
                 }}>0.1 <span>EGLD</span></Button>
-                <Button $amount $selected={bet === 0.25}  onClick={() => {
+                <Button $amount $selected={bet === 0.25} onClick={() => {
                   if (bet === 0.25) {
                     setBet(null)
                   } else {
@@ -288,21 +295,21 @@ const FlipGame = () => {
                 }}>0.25 <span>EGLD</span></Button>
               </PlayRow>
               <PlayRow>
-                <Button $amount $selected={bet === 0.5}  onClick={() => {
+                <Button $amount $selected={bet === 0.5} onClick={() => {
                   if (bet === 0.5) {
                     setBet(null)
                   } else {
                     setBet(0.5)
                   }
                 }}>0.5 <span>EGLD</span></Button>
-                <Button $amount $selected={bet === 1}  onClick={() => {
+                <Button $amount $selected={bet === 1} onClick={() => {
                   if (bet === 1) {
                     setBet(null)
                   } else {
                     setBet(1)
                   }
                 }}>1 <span>EGLD</span></Button>
-                <Button $amount $selected={bet === 2}  onClick={() => {
+                <Button $amount $selected={bet === 2} onClick={() => {
                   if (bet === 2) {
                     setBet(null)
                   } else {
@@ -311,13 +318,13 @@ const FlipGame = () => {
                 }}>2 <span>EGLD</span></Button>
               </PlayRow>
               {account?.balance &&
-                <Button  $flip onClick={playTheGame} disabled={!selectedType || !bet} >{preparing ? 'Preparing...' : 'Flip'}</Button>
+                <Button $flip onClick={playTheGame} disabled={!selectedType || !bet} >{preparing ? 'Preparing...' : 'Flip'}</Button>
               }
             </PlayWrapper>
             <FinalMessage $show={finalMessage && address}>
               {finalMessage ? (
-                <p>{finalMessage.won ? `Congrats! You won ${bet}EGLD`: `Better luck next time!`}</p>
-              ) : null }
+                <p>{finalMessage.won ? `Congrats! You won ${bet}EGLD` : `Better luck next time!`}</p>
+              ) : null}
               {finalMessage ? (
                 <Button onClick={() => {
                   setStartGame(false)
@@ -328,7 +335,7 @@ const FlipGame = () => {
             </FinalMessage>
           </div>
         </MainCointainer>
-        <Stats wallet={address} stats={stats} openStats={setOpenStats} hide={openStats || !address}  />
+        <Stats wallet={address} stats={stats} openStats={setOpenStats} hide={openStats || !address} />
       </OuterContainer>
     </TopWrapper>
   )
@@ -390,7 +397,7 @@ const Coins = styled.div<any>`
   transform-style: preserve-3d;
   transition: all .5s ease;
 
-  ${({$animate, $count}) => $animate && css`
+  ${({ $animate, $count }) => $animate && css`
     animation: ${flip($count)} 0s forwards;
   `}
 `
@@ -437,21 +444,21 @@ export const Button = styled.button<any>`
     background: ${colors.purple};
   }
 
-  ${({$activate}) => $activate && `
+  ${({ $activate }) => $activate && `
     transform: translateY(100px);
     opacity: 0;
   `}
 
-  ${({$selected}) => $selected && `
+  ${({ $selected }) => $selected && `
     background: ${colors.purple};
     color: #fff;
   `}
 
-  ${({$amount}) => !$amount && `
+  ${({ $amount }) => !$amount && `
     min-width: 90px;
   `}
 
-  ${({$amount}) => $amount && `
+  ${({ $amount }) => $amount && `
     width: 27%;
     padding 3px;
     font-size: 17px;
@@ -490,12 +497,12 @@ const PlayWrapper = styled.div<any>`
   padding: 80px 20px 0;
   margin: 0 auto;
 
-  ${({$activate}) => $activate && `
+  ${({ $activate }) => $activate && `
     opacity: 1;
     transform: translateY(-170px);
   `}
 
-  ${({$moveOut}) => $moveOut && `
+  ${({ $moveOut }) => $moveOut && `
     opacity: 0;
     transform: translateY(0);
   `}
@@ -504,7 +511,7 @@ const PlayWrapper = styled.div<any>`
 const ConnectButton = styled.div<any>`
   margin-top: 60px;
 
-  ${({$activate}) => $activate && `
+  ${({ $activate }) => $activate && `
     transform: translateY(100px);
     opacity: 0;
   `}
@@ -619,7 +626,7 @@ const FinalMessage = styled.div<any>`
     font-size: 22px;
   }
 
-  ${({$show}) => $show && `
+  ${({ $show }) => $show && `
     opacity: 1;
     transform: translateY(-430px);
   `}
