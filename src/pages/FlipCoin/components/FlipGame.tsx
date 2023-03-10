@@ -61,7 +61,7 @@ const FlipGame = () => {
   const [stats, setStats] = useState<any>([]);
   const refreshStats = () => {
     // fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=SOL', {
-      fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/stats?blockchain=SOL', {
+      fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=SOL', {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -135,7 +135,7 @@ const FlipGame = () => {
 
     if (balance && bet && balance >= bet) {
       // fetch('https://games-api-five.vercel.app/api/coin-game', {
-        fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game', {
+        fetch('https://games-api-five.vercel.app/api/coin-game', {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',

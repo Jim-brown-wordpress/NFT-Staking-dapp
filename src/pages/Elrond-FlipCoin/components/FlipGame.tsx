@@ -49,8 +49,8 @@ const FlipGame = () => {
   const [isPlay , setIsPlay] = useState<boolean>(false);
 
   const refreshStats = () => {
-    // fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
-      fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/stats?blockchain=EGLD', {
+    fetch('https://games-api-five.vercel.app/api/coin-game/stats?blockchain=EGLD', {
+      // fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/stats?blockchain=EGLD', {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -68,9 +68,9 @@ const FlipGame = () => {
     if (trStatus?.transactions?.[0]) {
       setSendRequest(true)
 
-      // fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
+      fetch('https://games-api-five.vercel.app/api/coin-game/elrond', {
 
-      fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/elrond', {
+      // fetch('https://b1d9-188-43-136-44.jp.ngrok.io/api/coin-game/elrond', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
