@@ -18,6 +18,7 @@ import {
   SolanaMobileWalletAdapter
 } from '@solana-mobile/wallet-adapter-mobile';
 import FlipGame from './components/FlipGame';
+import { isDev } from 'config';
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
@@ -25,7 +26,7 @@ require('@solana/wallet-adapter-react-ui/styles.css');
 const App = () => {
   // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
   // const network = WalletAdapterNetwork.Mainnet;
-  const network = WalletAdapterNetwork.Devnet;
+  const network = isDev ? WalletAdapterNetwork.Devnet: WalletAdapterNetwork.Mainnet;
 
   // You can also provide a custom RPC endpoint.
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);

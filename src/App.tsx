@@ -2,7 +2,7 @@ import * as DappUI from '@elrondnetwork/dapp-core/UI';
 import { DappProvider } from '@elrondnetwork/dapp-core/wrappers';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import Layout from 'components/Layout';
-import { network, walletConnectBridge, walletConnectDeepLink } from 'config';
+import { enviornment, network, walletConnectBridge, walletConnectDeepLink } from 'config';
 // import PageNotFound from 'pages/PageNotFound';
 import { routeNames } from 'routes';
 import routes from 'routes';
@@ -24,7 +24,7 @@ const App = () => {
     <Router>
       <DappProvider
         // environment={'mainnet'}
-        environment={'devnet'}
+        environment={enviornment}
         customNetworkConfig={{ network, walletConnectBridge, walletConnectDeepLink }}
       >
         {/* <DappCoreUIWrapper> */}
