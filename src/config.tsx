@@ -61,5 +61,5 @@ export const apiURL = isDev?'https://devnet-api.multiversx.com':'https://api.mul
 
 
 
-export const serverURL = 'http://localhost:3001/api'
+export const serverURL = 'https://ndo-dao-backend-server.vercel.app'
 export const conflipServerURl = 'https://coin-flip-game-c5x9.vercel.app';
