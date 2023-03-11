@@ -24,7 +24,7 @@ const DaoPage = () => {
   const { address } = useGetAccountInfo()
 
   useEffect(() => {
-    axios.get(`${serverURL}/proposals` , {
+    axios.get(`${serverURL}/api/proposals` , {
       headers: {
         'Access-Control-Allow-Origin' : '*',
         // 'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
@@ -40,7 +40,7 @@ const DaoPage = () => {
     if (address) {
       const { apiAddress } = network;
 
-      axios.get(`${serverURL}/votes/${address}`).then(res => {
+      axios.get(`${serverURL}/api/votes/${address}`).then(res => {
         setVotes(res.data)
       })
       //NDOA-10ba86 - test
