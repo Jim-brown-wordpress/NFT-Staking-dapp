@@ -16,12 +16,7 @@ const UtilityComponent = () => {
         <BackgroundTitle $order={5} src="/images/about/background-text5.svg" alt="Utility" />
         <BackgroundTitle $mobile $order={5} src="/images/about/mobile/background-title5.svg" alt="Utility" />
         <TextWrapper>
-          {
-            isMobile?
-              ''
-              :
-              <Heading>Coming soon</Heading>
-          }
+
           {
             isMobile?
             <>
@@ -34,6 +29,11 @@ const UtilityComponent = () => {
               <Heading border style = {{ lineHeight: 1.1 , textAlign: isMobile?'left':'center' , paddingBottom: isMobile? '15px':'' , marginBottom: isMobile?'15px':'' }}>Wen Utility for $NDO?</Heading>
           }
           <Text>You can use your $NDO tokens in the Raffles Center! Burn your $NDO token for a chance to win Merchandise, ESDT tokens from other projects, WL spots for upcoming mints, NFTs and more!</Text>
+
+          <Heading style = {{
+            color:'#FC635F', transform: 'rotate(-25deg)'
+           }}>Coming soon</Heading>
+
         </TextWrapper>
       </Container>
       <Container dark>
