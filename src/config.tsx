@@ -49,13 +49,13 @@ export const network = {
 /////////////////////////////////////////////////
 
 
-// export const enviornment = 'mainnet'
-export const enviornment = 'devnet';
+export const enviornment = 'mainnet'
+// export const enviornment = 'devnet';
 
-export const contractAddress ='erd1qqqqqqqqqqqqqpgqeenvnpp4mgc3e53rdxtl98mvl6mnu77j5zvsy7kch0';
-export const NFT_COLLECTION_ID = 'ABCDE-21319b';
+export const contractAddress ='erd1qqqqqqqqqqqqqpgq46nvnx07x6lh6qfv6y7lr8248dfwk0pcuslsl3qcye';
+export const NFT_COLLECTION_ID = 'NDO-950433';
 
-export const isDev = true;
+export const isDev = false;
 export const chainID = isDev? 'D': '1';
 export const apiURL = isDev?'https://devnet-api.multiversx.com':'https://api.multiversx.com';
 
