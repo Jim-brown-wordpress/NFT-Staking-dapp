@@ -31,7 +31,7 @@ const UtilityComponent = () => {
           <Text>You can use your $NDO tokens in the Raffles Center! Burn your $NDO token for a chance to win Merchandise, ESDT tokens from other projects, WL spots for upcoming mints, NFTs and more!</Text>
 
           <Heading style = {{
-            color:'#FC635F', transform: 'rotate(-25deg)' , top: isMobile? '40px': '180px'
+            color:'#FC635F', transform: 'rotate(-25deg)',position: 'relative' , top:  isMobile? '40px': '100px'
            }}>Coming soon</Heading>
 
         </TextWrapper>
